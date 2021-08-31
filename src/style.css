@@ -1,7 +1,69 @@
 body {
-  background-color: bisque;
+  flex-direction: column;
+  width: 80%;
+  margin: 0 10%;
+}
+.flex {
+  display: flex;
 }
 
-.hello {
-  color: red;
+.w-100 {
+  width: 100%;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+main {
+  justify-content: space-around;
+}
+
+#scores-section {
+  width: 50%;
+}
+
+#refresh {
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  border: none;
+  margin: 0 0 0 20%;
+  padding: 0 10px;
+}
+
+#refresh:hover {
+  border: none;
+  background-color: rgba(30, 28, 185, 0.733);
+}
+
+section {
+  flex-direction: column;
+}
+
+ul {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  width: 50%;
+  list-style: none;
+  padding: 3px 3px 0 3px;
+}
+
+li {
+  text-align: center;
+}
+
+li:nth-of-type(odd) {
+  background-color: #e9e9f9;
+}
+
+form {
+  flex-direction: column;
+}
+
+input {
+  margin-bottom: 8px;
+}
+
+#submit {
+  width: 60px;
+  align-self: flex-end;
 }
