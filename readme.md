@@ -10,7 +10,7 @@ This project features ES6, Webpack, APIs.
 
 ## Live Demo
 
-[Live Demo link](#)
+[Live Demo link](https://safafa.github.io/LeaderBoard/)
 
 ### Prerequisites
 
@@ -37,7 +37,7 @@ To get a local copy in your machine:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/safafa/To_Do_list/issues).
+Feel free to check the [issues page](https://github.com/safafa/LeaderBoard/issues).
 
 ## Show your support
 
