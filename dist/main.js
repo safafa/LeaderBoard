@@ -118,6 +118,17 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, style) {\
 
 /***/ }),
 
+/***/ "./src/api.js":
+/*!********************!*\
+  !*** ./src/api.js ***!
+  \********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"apiPost\": () => (/* binding */ apiPost),\n/* harmony export */   \"apiGet\": () => (/* binding */ apiGet)\n/* harmony export */ });\n\r\nconst url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api';\r\nconst apiPost = async (endpoint, data) => {\r\n    const request = await fetch(`${url}/${endpoint}`, {\r\n        method: 'POST',\r\n        mode: 'cors', // no-cors, *cors, same-origin\r\n        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached\r\n        credentials: 'same-origin', // include, *same-origin, omit\r\n        headers: {\r\n          'Content-Type': 'application/json'\r\n          // 'Content-Type': 'application/x-www-form-urlencoded',\r\n        },\r\n        redirect: 'follow', // manual, *follow, error\r\n        referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url\r\n        body: JSON.stringify(data) // body data type must match \"Content-Type\" header\r\n    });\r\n    const result = await request.json();\r\n    return result;\r\n}\r\n\r\nconst apiGet = async (endpoint) => {\r\n    const request = await fetch(`${url}/${endpoint}`);\r\n    const result = await request.json();\r\n    return result;\r\n}\n\n//# sourceURL=webpack://webpack_boilerplate/./src/api.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -125,7 +136,18 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, style) {\
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ \"./node_modules/lodash/lodash.js\");\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\r\n\r\n\r\nconst players = [\r\n {\r\n   name: \"Safa\",\r\n   score: 100\r\n },\r\n {\r\n  name: \"Safa\",\r\n  score: 100\r\n },\r\n {\r\n  name: \"Safa\",\r\n  score: 100\r\n },\r\n {\r\n  name: \"Safa\",\r\n  score: 100\r\n },\r\n{\r\n  name: \"Safa\",\r\n  score: 100\r\n},\r\n{\r\n  name: \"Safa\",\r\n  score: 100\r\n},\r\n]\r\n\r\nconst renderScores = ()  => {\r\n    const list =  document.getElementById('scores-list');\r\n    players.forEach(player => {\r\n      const {name, score} = player;\r\n      const li = document.createElement('li');\r\n      li.innerText = `${name} : ${score}`;\r\n      list.appendChild(li);\r\n    })\r\n    return list;\r\n}\r\n\r\nrenderScores();\n\n//# sourceURL=webpack://webpack_boilerplate/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ \"./node_modules/lodash/lodash.js\");\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _api_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./api.js */ \"./src/api.js\");\n/* harmony import */ var _render_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./render.js */ \"./src/render.js\");\n\r\n\r\n\r\n\r\n\r\nconst gameId = 'pTM1dfqEPrVz08MIv3ug';\r\nconst form = document.getElementById('score-form');\r\nconst refresh = document.getElementById('refresh');\r\n\r\nrefresh.addEventListener('click', () => {\r\n  (0,_api_js__WEBPACK_IMPORTED_MODULE_2__.apiGet)(`games/${gameId}/scores`).then((response) => {\r\n    (0,_render_js__WEBPACK_IMPORTED_MODULE_3__.emptyList)();\r\n    (0,_render_js__WEBPACK_IMPORTED_MODULE_3__.renderScores)(response.result);\r\n  });\r\n});\r\n\r\nform.addEventListener('submit', (e) => {\r\n  e.preventDefault();\r\n  const name = document.getElementById('name').value;\r\n  const score = document.getElementById('score').value;\r\n  (0,_api_js__WEBPACK_IMPORTED_MODULE_2__.apiPost)(`games/${gameId}/scores`, {\r\n    user: name,\r\n    score: score,\r\n  }).then(() => {\r\n    form.reset();\r\n  });\r\n});\r\n\r\n(0,_api_js__WEBPACK_IMPORTED_MODULE_2__.apiGet)(`games/${gameId}/scores`).then((response) => {\r\n  (0,_render_js__WEBPACK_IMPORTED_MODULE_3__.renderScores)(response.result);\r\n});\r\n\n\n//# sourceURL=webpack://webpack_boilerplate/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/render.js":
+/*!***********************!*\
+  !*** ./src/render.js ***!
+  \***********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"emptyList\": () => (/* binding */ emptyList),\n/* harmony export */   \"renderScores\": () => (/* binding */ renderScores)\n/* harmony export */ });\nconst list = document.getElementById('scores-list');\r\n\r\nconst emptyList = () => {\r\n  while (list.firstChild) {\r\n    list.removeChild(list.firstChild);\r\n  }\r\n};\r\n\r\nconst renderScores = (players) => {\r\n  players.forEach((player) => {\r\n    const { user: name, score } = player;\r\n    const li = document.createElement('li');\r\n    li.innerText = `${name} : ${score}`;\r\n    list.appendChild(li);\r\n  });\r\n  return list;\r\n};\n\n//# sourceURL=webpack://webpack_boilerplate/./src/render.js?");
 
 /***/ })
 
