@@ -20,7 +20,7 @@ form.addEventListener('submit', (e) => {
   const score = document.getElementById('score').value;
   apiPost(`games/${gameId}/scores`, {
     user: name,
-    score: score,
+    score,
   }).then(() => {
     form.reset();
   });
