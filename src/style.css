@@ -2,6 +2,29 @@ body {
   flex-direction: column;
   width: 80%;
   margin: 0 10%;
+  color: white;
+  background-color: #1a1a1d;
+}
+
+.archi-font {
+  font-family: "Architects Daughter", cursive;
+}
+
+.center-text {
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  color: #c3073f;
+  line-height: 5%;
+  font-size: 100px;
+  margin-top: 10%;
+}
+
+h2 {
+  color: #950740;
+  font-size: 35px;
 }
 
 .flex {
@@ -18,23 +41,18 @@ body {
 
 main {
   justify-content: space-around;
-}
-
-#scores-section {
-  width: 50%;
+  margin-top: 5%;
 }
 
 #refresh {
-  background-color: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  margin: 0 0 0 30%;
+  background-color: #1a1a1d;
+  color: #6f2232;
+  padding: 2px 32px;
+  text-align: center;
   border: none;
-  margin: 0 0 0 20%;
-  padding: 0 10px;
-}
-
-#refresh:hover {
-  border: none;
-  background-color: rgba(30, 28, 185, 0.733);
+  font-size: 20px;
+  cursor: pointer;
 }
 
 section {
@@ -43,28 +61,41 @@ section {
 
 ul {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  width: 50%;
+  width: 70%;
   list-style: none;
   padding: 3px 3px 0 3px;
 }
 
 li {
   text-align: center;
+  font-size: 19px;
 }
 
 li:nth-of-type(odd) {
-  background-color: #e9e9f9;
+  background-color: #4e4e50;
 }
 
 form {
   flex-direction: column;
+  width: 60%;
+  align-self: flex-end;
 }
 
 input {
   margin-bottom: 8px;
+  border: none;
+  height: 30px;
 }
 
 #submit {
-  width: 60px;
+  width: 30%;
   align-self: flex-end;
+  background-color: #1a1a1d;
+  color: white;
+  padding: 10px;
+  border-radius: 25px;
+  border-width: 2px;
+  border-color: #6f2232;
+  font-weight: bold;
+  font-size: 19px;
 }

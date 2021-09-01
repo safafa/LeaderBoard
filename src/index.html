@@ -3,25 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leaderboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <title>Leader board</title>
 </head>
 <body class="flex">
-    <header><h1>Leaderboard</h1></header>
+    <header><h1 class="archi-font">Leaderboard</h1></header>
     <main class="flex">
-    <section id='scores-section' class="flex">
+    <section id='scores-section' class="flex w-50">
         <header class="flex w-100">
-            <h2>Recent scores</h2>
-            <button id="refresh">Refresh</button>
+            <h2 class="archi-font">Recent scores</h2>
+            <button id="refresh" class="fas fa-sync-alt"></button>
         </header>
         <ul id="scores-list">
         </ul>
     </section>
-    <section class="flex">
-        <h2>Add your score</h2>
+    <section class="flex w-50">
+        <h2 class="archi-font center-text">Add your score</h2>
         <form id="score-form" class="flex">
             <input type="text" name="name" id="name">
             <input type="number" name="score" id="score">
-            <button type="submit" id="submit">Submit</button>
+            <button type="submit" id="submit" class="archi-font">Submit</button>
         </form>
     </section>
 </main>
