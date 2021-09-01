@@ -1,42 +1,31 @@
 import 'lodash';
 import './style.css';
+import { apiPost, apiGet } from './api.js';
+import { renderScores, emptyList } from './render.js';
 
-const players = [
-  {
-    name: 'Safa',
-    score: 100,
-  },
-  {
-    name: 'Safa',
-    score: 100,
-  },
-  {
-    name: 'Safa',
-    score: 100,
-  },
-  {
-    name: 'Safa',
-    score: 100,
-  },
-  {
-    name: 'Safa',
-    score: 100,
-  },
-  {
-    name: 'Safa',
-    score: 100,
-  },
-];
+const gameId = 'pTM1dfqEPrVz08MIv3ug';
+const form = document.getElementById('score-form');
+const refresh = document.getElementById('refresh');
 
-const renderScores = () => {
-  const list = document.getElementById('scores-list');
-  players.forEach((player) => {
-    const { name, score } = player;
-    const li = document.createElement('li');
-    li.innerText = `${name} : ${score}`;
-    list.appendChild(li);
+refresh.addEventListener('click', () => {
+  apiGet(`games/${gameId}/scores`).then((response) => {
+    emptyList();
+    renderScores(response.result);
   });
-  return list;
-};
+});
 
-renderScores();
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const name = document.getElementById('name').value;
+  const score = document.getElementById('score').value;
+  apiPost(`games/${gameId}/scores`, {
+    user: name,
+    score,
+  }).then(() => {
+    form.reset();
+  });
+});
+
+apiGet(`games/${gameId}/scores`).then((response) => {
+  renderScores(response.result);
+});
