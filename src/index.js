@@ -7,10 +7,15 @@ const gameId = 'pTM1dfqEPrVz08MIv3ug';
 const form = document.getElementById('score-form');
 const refresh = document.getElementById('refresh');
 
+const sortRender = (scores) => {
+  scores.sort((a, b) => parseInt(b.score, 10) - parseInt(a.score, 10));
+  renderScores(scores);
+};
+
 refresh.addEventListener('click', () => {
   apiGet(`games/${gameId}/scores`).then((response) => {
     emptyList();
-    renderScores(response.result);
+    sortRender(response.result);
   });
 });
 
@@ -27,5 +32,6 @@ form.addEventListener('submit', (e) => {
 });
 
 apiGet(`games/${gameId}/scores`).then((response) => {
-  renderScores(response.result);
+  sortRender(response.result);
 });
+

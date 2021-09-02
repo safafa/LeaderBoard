@@ -1,9 +1,7 @@
 const list = document.getElementById('scores-list');
 
 export const emptyList = () => {
-  while (list.firstChild) {
-    list.removeChild(list.firstChild);
-  }
+  list.innerHTML = '';
 };
 
 export const renderScores = (players) => {
